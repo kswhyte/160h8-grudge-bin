@@ -1,7 +1,6 @@
 {
   "name": "kw-mod4-final-assessment",
   "version": "1.0.0",
-  "description": "",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -11,11 +10,27 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.16.1",
-    "express": "^4.14.1"
+    "es6-promise": "^4.0.5",
+    "express": "^4.14.1",
+    "jquery": "^3.1.1",
+    "shortid": "^2.2.6"
   },
   "devDependencies": {
     "chai": "^3.5.0",
     "chai-http": "^3.0.0",
-    "mocha": "^3.2.0"
-  }
+    "mocha": "^3.2.0",
+    "nodemon": "^1.11.0"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kswhyte/160h8-grudge-bin.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kswhyte/160h8-grudge-bin/issues"
+  },
+  "homepage": "https://github.com/kswhyte/160h8-grudge-bin#readme",
+  "description": ""
 }
