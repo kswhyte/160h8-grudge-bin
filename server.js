@@ -41,7 +41,7 @@ app.get('/api/v1/grudges', (req, res) => {
 })
 
 app.get('/api/v1/grudges/:id', (req, res) => {
-  let grudge = app.locals.grudgeForms.find(grudge => {
+  let grudge = app.locals.grudges.find(grudge => {
     return grudge.id === req.params.id
   })
   res.send(grudge)

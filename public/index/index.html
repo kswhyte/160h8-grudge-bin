@@ -30,17 +30,18 @@
             pattern='[a-zA-Z0-9 .!?"-]+$'
             title='Justify your resentment with only letters, numbers, spaces, hyphens, exclamation marks, quotes, and periods.'
           >
-          <button id'submit-grudge-btn' type='submit'>Grumble your Grudge</button>
+          <input id='grudge-date' type='date'>
+          <button id='submit-grudge-btn' type='submit'>Grumble your Grudge</button>
         </form>
       </label>
     </section>
 
     <ul id="grudge-list"></ul>
 
-    <section id="grudge-container">
+    <section class="grudge-updates">
       <div class="live-update" id="total-jackals">Total jackals on your Most-Hated list: </div>
       <div class="live-update" id="total-jackals-unforgiven">Total arseholes left unforgiven: </div>
-      <div class="live-update" id="total-jackals-forgiven">Total vindicated schmucks: </div>
+      <div class="live-update" id="total-jackals-vindicated">Total vindicated schmucks: </div>
     </section>
 
     <script type='text/javascript' src='/index/index.js'></script>

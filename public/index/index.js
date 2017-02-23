@@ -3,34 +3,31 @@ const $grudgeForm = $('#grudge-form')
 const $grudgeList = $('#grudge-list')
 const $jackalName = $('#grudge-person')
 const $grudgeOffense = $('#grudge-offense')
+const $grudgeDate = $('#grudge-date')
 
-// const connectedUsers = $('#connected-users-count')
-// const statusMessage = $('#status-message')
-// const buttons = document.querySelectorAll('#choices button')
-// const voteResults = $('#vote-count')
+const $totalJackals = $('#total-jackals')
+const $totalJackalsUnforgiven = $('#total-jackals-unforgiven')
+const $totalJackalsForgiven = $('#total-jackals-vindicated')
 
-// $(document).ready(() => {
-//   $.get('/api/v1/grudges')
-//     .then(grudges => {
-//       if (grudges.length > 0) {
-//         grudges.forEach(grudge => {
-//           grudgeList.append(`
-//             <li>
-//               <a class="grudge-name-link" href="/grudges/?grudgeID=${grudge.id}">
-//                 ${grudge.name}
-//               </a>
-//             </li>
-//           `)
-//         })
-//       }
-//     })
-// })
-
-// An id (Integer)
-// The name of the person who wrong you (String)
-// The offense that caused them to be dead to you (String)
-// Whether or not you've forgiven (but not forgotten) them (Boolean)
-// Date of offense
+$(document).ready(() => {
+  $.get('/api/v1/grudges')
+    .then(grudges => {
+      if (grudges.length > 0) {
+        grudges.forEach(grudge => {
+          $grudgeList.append(`
+            <li>
+              <a class="grudge-name-link" href="/grudges/?grudgeID=${grudge.id}">
+                ${grudge.name}
+              </a>
+            </li>
+            <li>
+              <p class="grude-crime-time">Crime time: ${grudge.offenseDate}</p>
+            </li>
+          `)
+        })
+      }
+    })
+})
 
 $grudgeForm.on('submit', (e) => {
   e.preventDefault()
@@ -39,6 +36,7 @@ $grudgeForm.on('submit', (e) => {
     id: Date.now(),
     jackalName: $jackalName.val(),
     offense: $grudgeOffense.val(),
+    offenseDate: $grudgeDate.val(),
     forgiven: false
   }
 
@@ -52,14 +50,16 @@ const postGrudges = (grudgeDetails) => {
   $.post('/grudges', grudgeDetails)
   .then(grudgeDetails => {
     grudgeDetails.forEach(grudge => {
+      console.log('adsfasdf', grudge)
+
       $grudgeList.append(`
         <li>
-          <a class="grudge-name-link" href="/grudges/?grudgeID=${grudge.id}">
+          <a class="grudge-name-link" href="/jackal/?grudgeID=${grudge.id}">
             ${grudge.jackalName}
           </a>
         </li>
         <li>
-          <p>Crime time: ${grudge.id}</p>
+          <p class="grude-crime-time">Crime time: ${grudge.offenseDate}</p>
         </li>
       `)
     })
