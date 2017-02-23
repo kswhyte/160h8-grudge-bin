@@ -3,31 +3,35 @@
   <head>
     <meta charset="utf-8">
     <title>160h8 Grudge Bin</title>
-    <link rel="stylesheet" href="./styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Barrio|Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="/reset.css">
+    <link rel="stylesheet" href="/styles.css">
   </head>
 
   <body>
-    <h1 id='app-title'>Grudge<span id='bin-span'> Bin</span></h1>
-    <img id='grudge-icon' src='grudge-face.svg' alt='grudge-face'/>
-    <form id="grudge-form" type="submit" method="post">
-      <label class='grudge-input-label'>
-        Keep a Grudge ...<br>
-        <input
-          id='grudge-person'
-          type='text'
-          placeholder='Name a person who has wronged you dearly...'
-          title='This name of sheer hate should only contain letters, numbers, spaces, hyphens, exclamation/question marks, quotes, and periods.'
-          pattern='[a-zA-Z0-9 .!?"-]+$'
-        >
-        <input
-          id='grudge-reason'
-          type='text'
-          placeholder='Why is this person welcomed to shove it and get lost?'
-          pattern='[a-zA-Z0-9 .!?"-]+$'
-          title='Justify your resentment with only letters, numbers, spaces, hyphens, exclamation marks, quotes, and periods.'
-        >
-        <button id'submit-grudge-btn' type='submit'>Grumble your Grudge</button>
-    </form>
+    <section id="grudge-bin-container">
+      <h1 id='app-title'>Grudge<span id='bin-span'>Bin</span></h1>
+      <img id='grudge-icon' src='/icons/skull.svg' alt='grudge-face'/>
+      <label id='grudge-input-label'>
+        <form id="grudge-form" type="submit" method="post">
+          Keep a Grudge ...<br>
+          <input
+            id='grudge-person'
+            type='text'
+            placeholder='Name a person who has wronged you dearly...'
+            title='This name of sheer hate should only contain letters, numbers, spaces, hyphens, exclamation/question marks, quotes, and periods.'
+            pattern='[a-zA-Z0-9 .!?"-]+$'
+          >
+          <input
+            id='grudge-reason'
+            placeholder='Why is this person welcomed to shove it and get lost?'
+            pattern='[a-zA-Z0-9 .!?"-]+$'
+            title='Justify your resentment with only letters, numbers, spaces, hyphens, exclamation marks, quotes, and periods.'
+          >
+          <button id'submit-grudge-btn' type='submit'>Grumble your Grudge</button>
+        </form>
+      </label>
+    </section>
 
     <section id="grudge-container">
       <div id="grudge-list"></div>

@@ -4,6 +4,8 @@ const bodyParser = require('body-parser');
 const shortid = require('shortid');
 // console.log(shortid.generate());
 
+app.use(express.static('public'))
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 

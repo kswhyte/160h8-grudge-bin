@@ -1,0 +1,76 @@
+body {
+  /*background-color: #333;*/
+  font-family: 'Barrio', cursive;
+}
+
+#grudge-bin-container, #grudge-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#app-title {
+  font-family: 'Barrio', cursive;
+  font-size: 80px;
+  margin: 20px auto;
+  color: #A11102;
+}
+
+#grudge-icon {
+  width: 200px;
+  height: 200px;
+}
+
+#grudge-input-label {
+  font-size: 40px;
+  margin: 20px auto;
+}
+
+input {
+  width: 410px;
+  margin: 7px auto;
+  padding: 5px;
+  border-radius: 10px;
+  border-style: inset;
+  border-color: initial;
+  border-image: initial;
+  outline: none;
+}
+
+input:not([type=submit]):not([type=file]) {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+}
+
+input#grudge-person {
+  margin-top: 20px;
+}
+
+button {
+  font-family: 'Barrio', cursive;
+  font-size: 20px;
+  width: auto;
+  height; auto;
+  margin: 20px auto;
+  padding: 10px 15px 11px 15px;
+  border: none;
+  text-align: center;
+  border-radius: 3px;
+  background-color: #4b4b4b;
+  color: #fff;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: #ED4440;
+  color: #000;
+}
+
+#grudge-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 20px auto;
+}
