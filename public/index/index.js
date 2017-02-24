@@ -17,11 +17,11 @@ $(document).ready(() => {
           $grudgeList.append(`
             <li>
               <a class="grudge-name-link" href="/grudges/?grudgeID=${grudge.id}">
-                ${grudge.name}
+                ${grudge.jackalName}
               </a>
             </li>
             <li>
-              <p class="grude-crime-time">Crime time: ${grudge.offenseDate}</p>
+              <p class="grudge-crime-time">Crime time: ${grudge.offenseDate}</p>
             </li>
           `)
         })
@@ -50,8 +50,6 @@ const postGrudges = (grudgeDetails) => {
   $.post('/grudges', grudgeDetails)
   .then(grudgeDetails => {
     grudgeDetails.forEach(grudge => {
-      console.log('adsfasdf', grudge)
-
       $grudgeList.append(`
         <li>
           <a class="grudge-name-link" href="/jackal/?grudgeID=${grudge.id}">

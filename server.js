@@ -47,6 +47,11 @@ app.get('/api/v1/grudges/:id', (req, res) => {
   res.send(grudge)
 })
 
+// app.get('/api/v1/vote_results', (req, res) => {
+//   let userProfiles = app.locals.voteResults
+//   res.send(userProfiles)
+// })
+
 app.listen(app.get('port'), () => {
   console.log(`${app.locals.title} is running on ${app.get('port')}.`)
 })
