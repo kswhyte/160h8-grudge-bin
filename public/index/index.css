@@ -1,0 +1,63 @@
+#grudge-bin-container, #grudge-form, #grudge-list, .grudge-updates {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#app-title {
+  font-size: 80px;
+  margin: 20px auto;
+  color: #A11102;
+}
+
+img#grudge-icon {
+  width: 300px;
+  height: 300px;
+}
+
+#grudge-input-label {
+  font-size: 40px;
+  margin: 20px auto;
+}
+
+input#grudge-person {
+  margin-top: 20px;
+}
+
+#grudge-form {
+  margin: 20px auto;
+}
+
+#submit-grudge-btn {
+  margin: 20px auto 0 auto;
+}
+
+#grudge-list {
+  margin: 20px auto;
+}
+
+.grudge-name-link {
+  font-size: 30px;
+  text-decoration: none;
+  color: #5A7F79;
+}
+
+.grudge-name-link:hover {
+  color: #8AA8A3;
+}
+
+.grudge-crime-time {
+  font-family: 'Open Sans', sans-serif;
+  margin: 10px auto 20px auto;
+  font-size: 20px;
+}
+
+.live-update {
+  margin: 7px auto;
+  font-size: 20px;
+}
+
+section.grudge-updates {
+  margin-bottom: 20px;
+}

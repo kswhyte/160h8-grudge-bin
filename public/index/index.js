@@ -1,4 +1,3 @@
-// const socket = io()
 const $grudgeForm = $('#grudge-form')
 const $grudgeList = $('#grudge-list')
 const $jackalName = $('#grudge-person')
@@ -12,6 +11,7 @@ const $totalJackalsForgiven = $('#total-jackals-vindicated')
 $(document).ready(() => {
   $.get('/api/v1/grudges')
     .then(grudges => {
+      modifyCounts(grudges)
       if (grudges.length > 0) {
         grudges.forEach(grudge => {
           $grudgeList.append(`
@@ -49,6 +49,8 @@ const postGrudges = (grudgeDetails) => {
 
   $.post('/grudges', grudgeDetails)
   .then(grudgeDetails => {
+    modifyCounts(grudgeDetails)
+
     grudgeDetails.forEach(grudge => {
       $grudgeList.append(`
         <li>
@@ -57,14 +59,34 @@ const postGrudges = (grudgeDetails) => {
           </a>
         </li>
         <li>
-          <p class="grude-crime-time">Crime time: ${grudge.offenseDate}</p>
+          <p class="grudge-crime-time">Date of Horrid Act: ${grudge.offenseDate}</p>
         </li>
       `)
     })
   })
 }
 
+const modifyCounts = (grudgeDetails) => {
+  let totalJackals = grudgeDetails.length
+  let totalJackalsUnforgiven = checkWhoIsForgiven(grudgeDetails)
+  let totalJackalsForgiven = totalJackals - totalJackalsUnforgiven
+
+  $totalJackals.text(`Total jackals on your Most-Hated list: ${totalJackals}`)
+  $totalJackalsUnforgiven.text(`Total arseholes left unforgiven: ${totalJackalsUnforgiven}`)
+  $totalJackalsForgiven.text(`Total vindicated schmucks: ${totalJackalsForgiven}`)
+}
+
+const checkWhoIsForgiven = (grudgeDetails) => {
+  console.log('grudgeDetails', grudgeDetails);
+  let thoseUnforgiven = grudgeDetails.filter(grudge => {
+    console.log('000', grudge);
+    return grudge.forgiven == 'false'
+  })
+  return thoseUnforgiven.length
+}
+
 const resetInputs = () => {
   $jackalName.val('')
   $grudgeOffense.val('')
+  $grudgeDate.val('')
 }

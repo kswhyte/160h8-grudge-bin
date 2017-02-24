@@ -1,30 +1,13 @@
+html {
+  background-color: #C2E2DD;
+}
+
 body {
-  /*background-color: #333;*/
   font-family: 'Barrio', cursive;
 }
 
-#grudge-bin-container, #grudge-form, #grudge-list, #grudge-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
-
-#app-title {
-  font-family: 'Barrio', cursive;
-  font-size: 80px;
-  margin: 20px auto;
-  color: #A11102;
-}
-
-#grudge-icon {
-  width: 200px;
-  height: 200px;
-}
-
-#grudge-input-label {
-  font-size: 40px;
-  margin: 20px auto;
+span {
+  color: #ED4440;
 }
 
 input {
@@ -43,15 +26,11 @@ input:not([type=submit]):not([type=file]) {
   font-size: 16px;
 }
 
-input#grudge-person {
-  margin-top: 20px;
-}
-
 button {
   font-family: 'Barrio', cursive;
   font-size: 20px;
   width: auto;
-  height; auto;
+  height: auto;
   margin: 20px auto;
   padding: 10px 15px 11px 15px;
   border: none;
@@ -68,15 +47,10 @@ button:hover {
   color: #000;
 }
 
-#grudge-form {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+h1.scum-list {
+  font-size: 40px;
+  text-decoration: underline;
   margin: 20px auto;
-}
-
-.live-update {
-  margin: 7px auto;
-  font-size: 20px;
+  text-align: center;
+  color: #A11102;
 }
