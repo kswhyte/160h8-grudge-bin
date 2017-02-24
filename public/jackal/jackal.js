@@ -9,14 +9,6 @@ $homeBtn.on('click', () => {
   window.location = '/'
 })
 
-$grudgeForgiven.on('click', '#toggle-grudge-btn', () => {
-  if ($toggleGrudgeBtn.val() == "Forgive the Monster") {
-   	$toggleGrudgeBtn.val("Keep your Grudge")
-  }
-  else {
- 	  $toggleGrudgeBtn.val("Forgive the Monster")
-  }
-})
 
 $(document).ready(() => {
   let grudgeID = getParameterByName('grudgeID')
@@ -57,4 +49,22 @@ const tailorGrudgeStatus = (grudgeForgiven) => {
   } else {
     return 'NOT FORGIVEN'
   }
+}
+
+$toggleGrudgeBtn.on('click', () => {
+  editJackal()
+  if ($toggleGrudgeBtn.text() == "Forgive the Monster") {
+    $toggleGrudgeBtn.text("Keep your Grudge")
+  }
+  else {
+    $toggleGrudgeBtn.text("Forgive the Monster")
+  }
+})
+
+const editJackal = () => {
+  let grudgeID = getParameterByName('grudgeID')
+  $.get(`/api/v1/grudges/${grudgeID}`)
+    .then(grudge => {
+      console.log('343434', grudge)
+    })
 }

@@ -16,12 +16,12 @@ $(document).ready(() => {
         grudges.forEach(grudge => {
           $grudgeList.append(`
             <li>
-              <a class="grudge-name-link" href="/grudges/?grudgeID=${grudge.id}">
+              <a class='grudge-name-link' href='/grudges/?grudgeID=${grudge.id}'>
                 ${grudge.jackalName}
               </a>
             </li>
             <li>
-              <p class="grudge-crime-time">Crime time: ${grudge.offenseDate}</p>
+              <p class='grudge-crime-time'>Crime time: ${grudge.offenseDate}</p>
             </li>
           `)
         })
@@ -54,12 +54,12 @@ const postGrudges = (grudgeDetails) => {
     grudgeDetails.forEach(grudge => {
       $grudgeList.append(`
         <li>
-          <a class="grudge-name-link" href="/jackal/?grudgeID=${grudge.id}">
+          <a class='grudge-name-link' href='/jackal/?grudgeID=${grudge.id}'>
             ${grudge.jackalName}
           </a>
         </li>
         <li>
-          <p class="grudge-crime-time">Date of Horrid Act: ${grudge.offenseDate}</p>
+          <p class='grudge-crime-time'>Date of Horrid Act: ${grudge.offenseDate}</p>
         </li>
       `)
     })
@@ -77,9 +77,7 @@ const modifyCounts = (grudgeDetails) => {
 }
 
 const checkWhoIsForgiven = (grudgeDetails) => {
-  console.log('grudgeDetails', grudgeDetails);
   let thoseUnforgiven = grudgeDetails.filter(grudge => {
-    console.log('000', grudge);
     return grudge.forgiven == 'false'
   })
   return thoseUnforgiven.length

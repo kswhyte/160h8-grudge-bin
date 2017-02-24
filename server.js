@@ -33,7 +33,6 @@ app.get('/jackal/*', (req, res) => {
   res.sendFile(__dirname + '/public/jackal/jackal.html')
 })
 
-// ----------------------
 app.get('/api/v1/grudges', (req, res) => {
   let grudges = app.locals.grudges
   res.send(grudges)
@@ -49,27 +48,5 @@ app.get('/api/v1/grudges/:id', (req, res) => {
 app.listen(app.get('port'), () => {
   console.log(`${app.locals.title} is running on ${app.get('port')}.`)
 })
-
-// io.on('connection', (socket) => {
-//   console.log('A user has connected.', io.engine.clientsCount)
-//   io.sockets.emit('usersConnected', io.engine.clientsCount)
-//
-//   socket.emit('statusMessage', 'You have connected.')
-//
-//   socket.on('voteCast', (optionID, profileImg) => {
-//     updateVoteResults(profileImg)
-//     app.locals.voteResults.push({
-//       optionID,
-//       profileImg
-//     })
-//     io.sockets.emit('voteCount', app.locals.voteResults)
-//   })
-//
-//   socket.on('disconnect', () => {
-//     console.log('A user has disconnected.', io.engine.clientsCount)
-//     delete votes[socket.id]
-//     io.sockets.emit('usersConnected', io.engine.clientsCount)
-//   })
-// })
 
 module.exports = server

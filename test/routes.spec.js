@@ -17,7 +17,7 @@ describe('GET /', function() {
     res.should.have.status(200)
     res.should.be.json
     res.body.should.be.a('object')
-    res.body.should.have.property('grudge')
+    res.body.should.have.property('forgiven')
     done()
     })
   })
@@ -34,29 +34,24 @@ describe('GET Route(s)', () => {
       .get('/')
       .expect(302, done)
   })
-  it('/polls -- responds with success', (done) => {
+  it('/grudges -- responds with success', (done) => {
     request(app)
-    .get('/polls')
+    .get('/grudges')
     .expect(200, done)
   })
-  it('/vote/* -- responds with success', (done) => {
+  it('/jackal/* -- responds with success', (done) => {
     request(app)
     .get('/vote/*')
     .expect(200, done)
   })
-  it('/api/v1/polls/ -- responds with success', (done) => {
+  it('/api/v1/grudges/ -- responds with success', (done) => {
     request(app)
-    .get('/api/v1/polls/')
+    .get('/api/v1/grudges/')
     .expect(200, done)
   })
-  it('/api/v1/polls/:id -- responds with success', (done) => {
+  it('/api/v1/grudges/:id -- responds with success', (done) => {
     request(app)
-      .get('/api/v1/polls/:id')
-      .expect(200, done)
-  })
-  it('/api/v1/vote_results -- responds with success', (done) => {
-    request(app)
-      .get('/api/v1/vote_results')
+      .get('/api/v1/grudges/:id')
       .expect(200, done)
   })
 })
@@ -64,7 +59,7 @@ describe('GET Route(s)', () => {
 describe('POST Route(s)', () => {
   it('responds with success', (done) => {
     request(app)
-      .post('/polls')
+      .post('/grudges')
       .send({id: '34343422'})
       .expect(200, done)
   })
