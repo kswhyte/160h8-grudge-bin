@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <title>160h8 Grudge Bin</title>
+    <link href='https://fonts.googleapis.com/css?family=Barrio|Open+Sans' rel='stylesheet'>
+    <link rel='stylesheet' href='/styles/reset.css'>
+    <link rel='stylesheet' href='/styles/main.css'>
+    <link rel='stylesheet' href='/index/index.css'>
+
+    <script src='//code.jquery.com/jquery-3.1.0.min.js'></script>
+  </head>
+
+  <body>
+    <section id='grudge-bin-container'>
+      <h1 id='app-title'>Grudge<span id='bin-span'>Bin</span></h1>
+      <img id='grudge-icon' src='/icons/skull.svg' alt='grudge-face'/>
+      <label id='grudge-input-label'>
+        <form id='grudge-form' type='submit' method='post'>
+          Keep a Grudge ...<br>
+          <input
+            id='grudge-person'
+            type='text'
+            placeholder='Name a person who has wronged you dearly...'
+            title='This name of sheer hate should only contain letters, numbers, spaces, hyphens, exclamation/question marks, quotes, and periods.'
+            pattern="[a-zA-Z0-9 .!?'-]+$"
+          >
+          <input
+            id='grudge-offense'
+            placeholder='Why is this person welcomed to shove it and get lost?'
+            pattern="[a-zA-Z0-9 .!?'-]+$"
+            title='Justify your resentment with only letters, numbers, spaces, hyphens, exclamation marks, quotes, and periods.'
+          >
+          <input id='grudge-date' type='date'>
+          <button id='submit-grudge-btn' type='submit'>Grumble your Grudge</button>
+        </form>
+      </label>
+    </section>
+
+    <input type="text" id="search-filter" onkeyup="searchJackals()" placeholder="Search by names or date...">
+    <h1 class='scum-list'>Disgust<span> List</span></h1>
+    <ul id='grudge-list'></ul>
+
+    <section class='grudge-updates'>
+      <div class='live-update' id='total-jackals'>Total jackals on your Most-Hated list: 0</div>
+      <div class='live-update' id='total-jackals-unforgiven'>Total arseholes left unforgiven: 0</div>
+      <div class='live-update' id='total-jackals-vindicated'>Total vindicated schmucks: 0</div>
+    </section>
+
+    <script type='text/javascript' src='/index/index.js'></script>
+  </body>
+</html>

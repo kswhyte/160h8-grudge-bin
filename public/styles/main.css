@@ -1,0 +1,56 @@
+html {
+  background-color: #C2E2DD;
+}
+
+body {
+  font-family: 'Barrio', cursive;
+}
+
+span {
+  color: #ED4440;
+}
+
+input {
+  width: 410px;
+  margin: 7px auto;
+  padding: 5px;
+  border-radius: 5px;
+  border-style: inset;
+  border-color: initial;
+  border-image: initial;
+  outline: none;
+}
+
+input:not([type=submit]):not([type=file]) {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+}
+
+button {
+  font-family: 'Barrio', cursive;
+  font-size: 20px;
+  width: auto;
+  height: auto;
+  margin: 20px auto;
+  padding: 10px 15px 11px 15px;
+  border: none;
+  text-align: center;
+  border-radius: 5px;
+  background-color: #4b4b4b;
+  color: #fff;
+  outline: none;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: #ED4440;
+  color: #000;
+}
+
+h1.scum-list {
+  font-size: 40px;
+  text-decoration: underline;
+  margin: 20px auto;
+  text-align: center;
+  color: #A11102;
+}

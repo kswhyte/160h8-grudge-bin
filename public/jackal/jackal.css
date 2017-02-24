@@ -1,0 +1,40 @@
+button#home-btn {
+  margin: 20px auto;
+  display: block;
+}
+
+#grudge-bin-container, #grudge-details-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#page-title {
+  font-family: 'Barrio', cursive;
+  font-size: 80px;
+  margin: 20px auto;
+  color: #A11102;
+}
+
+#owl-icon {
+  width: 300px;
+  height: 300px;
+}
+
+.grudge-status-root {
+  font-size: 30px;
+  margin: 10px auto 20px auto;
+}
+
+.grudge-detail {
+  margin: 10px auto;
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+  color: #5A7F79;
+  font-size: 20px;
+}
+
+#toggle-grudge-btn {
+  margin-top: 0px;
+}
