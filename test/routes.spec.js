@@ -3,9 +3,7 @@ process.env.NODE_ENV = 'test'
 var chai = require('chai')
 var should = chai.should()
 var chaiHttp = require('chai-http')
-var server = require('../app')
-const app = require('../server')
-const request = require('supertest')
+var server = require('../server.js')
 
 chai.use(chaiHttp)
 

@@ -40,7 +40,7 @@ const renderGrudgeDetails = (grudge) => {
 
   $grudgeName.append(`<h1 class='grudge-detail'>${grudge.jackalName}</h1>`)
   $grudgeOffense.append(`<p class='grudge-detail'>${grudge.offense}</p>`)
-  $grudgeForgiven.append(`<p class='grudge-detail'><span id="grudge-status-statement"${grudgeStatusStatement}</span</p>`)
+  $grudgeForgiven.append(`<p class='grudge-detail'><span id='grudge-status-statement'${grudgeStatusStatement}</span</p>`)
 }
 
 const tailorGrudgeStatus = (grudgeForgiven) => {
@@ -53,18 +53,23 @@ const tailorGrudgeStatus = (grudgeForgiven) => {
 
 $toggleGrudgeBtn.on('click', () => {
   editJackal()
-  if ($toggleGrudgeBtn.text() == "Forgive the Monster") {
-    $toggleGrudgeBtn.text("Keep your Grudge")
+  if ($toggleGrudgeBtn.text() == 'Forgive the Monster') {
+    $toggleGrudgeBtn.text('Keep your Grudge')
   }
   else {
-    $toggleGrudgeBtn.text("Forgive the Monster")
+    $toggleGrudgeBtn.text('Forgive the Monster')
   }
 })
 
 const editJackal = () => {
   let grudgeID = getParameterByName('grudgeID')
-  $.get(`/api/v1/grudges/${grudgeID}`)
-    .then(grudge => {
-      console.log('343434', grudge)
-    })
+  $.post(`/api/v1/grudges/${grudgeID}`)
+    // .then(grudges => {
+    //   grudges.map(grudge => {
+    //     if (grudge.id == grudgeID) {
+    //       !grudge.forgiven
+    //     }
+    //   })
+    //   console.log('grudge', grudge)
+    // })
 }

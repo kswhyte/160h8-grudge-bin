@@ -45,6 +45,14 @@ app.get('/api/v1/grudges/:id', (req, res) => {
   res.send(grudge)
 })
 
+app.post('/api/v1/grudges/:id', (req, res) => {
+  // let grudge = app.locals.grudges.find(grudge => {
+  //   return grudge.id === req.params.id
+  // })
+  // grudge.forgiven = !grudge.forgiven
+  // res.send(grudge)
+})
+
 app.listen(app.get('port'), () => {
   console.log(`${app.locals.title} is running on ${app.get('port')}.`)
 })

@@ -23,12 +23,12 @@
             type='text'
             placeholder='Name a person who has wronged you dearly...'
             title='This name of sheer hate should only contain letters, numbers, spaces, hyphens, exclamation/question marks, quotes, and periods.'
-            pattern='[a-zA-Z0-9 .!?'-]+$'
+            pattern="[a-zA-Z0-9 .!?'-]+$"
           >
           <input
             id='grudge-offense'
             placeholder='Why is this person welcomed to shove it and get lost?'
-            pattern='[a-zA-Z0-9 .!?'-]+$'
+            pattern="[a-zA-Z0-9 .!?'-]+$"
             title='Justify your resentment with only letters, numbers, spaces, hyphens, exclamation marks, quotes, and periods.'
           >
           <input id='grudge-date' type='date'>
@@ -37,6 +37,7 @@
       </label>
     </section>
 
+    <input type="text" id="search-filter" onkeyup="searchJackals()" placeholder="Search by names or date...">
     <h1 class='scum-list'>Disgust<span> List</span></h1>
     <ul id='grudge-list'></ul>
 

@@ -3,6 +3,7 @@ const $grudgeList = $('#grudge-list')
 const $jackalName = $('#grudge-person')
 const $grudgeOffense = $('#grudge-offense')
 const $grudgeDate = $('#grudge-date')
+const $searchFilter = $('#search-filter')
 
 const $totalJackals = $('#total-jackals')
 const $totalJackalsUnforgiven = $('#total-jackals-unforgiven')
@@ -87,4 +88,21 @@ const resetInputs = () => {
   $jackalName.val('')
   $grudgeOffense.val('')
   $grudgeDate.val('')
+}
+
+const searchJackals = () => {
+  // let filter, ul, li, a, i
+  // filter = $searchFilter.val().toUpperCase()
+  // ul = document.getElementById('grudge-list')
+  // li = ul.getElementsByTagName('li')
+  // 
+  // for (i = 0; i < li.length; i++) {
+  //   a = li[i].getElementsByTagName('a')[0]
+  //   console.log('a', a)
+  //   if (a.text().toUpperCase().indexOf(filter) > -1) {
+  //       li[i].style.display = ''
+  //   } else {
+  //       li[i].style.display = 'none'
+  //   }
+  // }
 }

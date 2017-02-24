@@ -58,6 +58,11 @@ input#grudge-person {
   font-size: 20px;
 }
 
+#search-filter {
+  margin: 0 auto;
+  display: block;
+}
+
 section.grudge-updates {
   margin-bottom: 20px;
 }
