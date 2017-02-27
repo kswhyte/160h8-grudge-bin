@@ -1,4 +1,3 @@
-// const socket = io();
 const $homeBtn = $('#home-btn')
 const $grudgeName = $('#grudge-name')
 const $grudgeOffense = $('#grudge-offense')
@@ -8,7 +7,6 @@ const $toggleGrudgeBtn = $('#toggle-grudge-btn')
 $homeBtn.on('click', () => {
   window.location = '/'
 })
-
 
 $(document).ready(() => {
   let grudgeID = getParameterByName('grudgeID')
@@ -31,7 +29,7 @@ const fetchGrudgeDetails = (grudgeID) => {
   $.get(`/api/v1/grudges/${grudgeID}`)
     .then(grudge => {
       renderGrudgeDetails(grudge)
-      toggleGrudgeBtnText(grudge.forgiven)
+      toggleGrudgeBtnText(JSON.parse(grudge.forgiven))
     })
 }
 
@@ -42,14 +40,6 @@ const renderGrudgeDetails = (grudge) => {
   $grudgeName.append(`<h1 class='grudge-detail'>${grudge.jackalName}</h1>`)
   $grudgeOffense.append(`<p class='grudge-detail'>${grudge.offense}</p>`)
   $grudgeForgiven.append(`<p class='grudge-detail forgiven-status'><span id='grudge-status-statement'>${grudgeStatusStatement}</span></p>`)
-}
-
-const tailorGrudgeStatus = (grudgeForgiven) => {
-  if (grudgeForgiven == true) {
-    return 'FORGIVEN'
-  } else {
-    return 'NOT FORGIVEN'
-  }
 }
 
 $toggleGrudgeBtn.on('click', (e) => {
@@ -82,7 +72,6 @@ const renderGrudgeUpdate = (grudge) => {
 }
 
 const toggleGrudgeBtnText = (grudgeForgiven) => {
-  console.log('grudgeForgiven', grudgeForgiven)
   if (grudgeForgiven == true) {
     $toggleGrudgeBtn.text('Keep your Grudge')
   }

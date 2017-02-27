@@ -9,15 +9,14 @@ const request = require('supertest')
 
 chai.use(chaiHttp)
 
-describe('GET /', function() {
+describe('GET /api/v1/grudges', function() {
   it('should return all grudges', function(done) {
     chai.request(app)
-    .get('/')
+    .get('/api/v1/grudges')
     .end(function(err, res) {
     res.should.have.status(200)
     res.should.be.json
-    res.body.should.be.a('object')
-    res.body.should.have.property('jackalName')
+    res.body.should.be.a('array')
     done()
     })
   })
@@ -57,6 +56,15 @@ describe('GET Route(s)', () => {
 })
 
 describe('POST Route(s)', () => {
+  it('responds with success', (done) => {
+    request(app)
+      .post('/grudges')
+      .send({id: '34343422'})
+      .expect(200, done)
+  })
+})
+
+describe('PATCH Route(s)', () => {
   it('responds with success', (done) => {
     request(app)
       .post('/grudges')

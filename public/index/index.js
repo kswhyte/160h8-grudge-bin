@@ -17,23 +17,16 @@ $(document).ready(() => {
       modifyCounts(grudges)
       if (grudges.length > 0) {
         grudges.forEach(grudge => {
-          renderGrudges(grudge)
+          let grudgeTemplate = makeGrudgeTemplate(grudge)
+          $grudgeList.append(grudgeTemplate)
         })
       }
     })
 })
 
 const renderGrudges = (grudge) => {
-  $grudgeList.append(`
-    <li>
-      <a class='grudge-name-link' href='/jackal/?grudgeID=${grudge.id}'>
-        ${grudge.jackalName}
-      </a>
-    </li>
-    <li>
-      <p class='grudge-crime-time'>Date of Horrid Act: ${grudge.offenseDate}</p>
-    </li>
-  `)
+  let grudgeTemplate = makeGrudgeTemplate(grudge)
+  $grudgeList.append(grudgeTemplate)
 }
 
 $grudgeForm.on('submit', (e) => {
@@ -59,7 +52,8 @@ const postGrudges = (grudgeDetails) => {
     modifyCounts(grudgeDetails)
 
     grudgeDetails.forEach(grudge => {
-      renderGrudges(grudge)
+      let grudgeTemplate = makeGrudgeTemplate(grudge)
+      $grudgeList.append(grudgeTemplate)
     })
   })
 }
@@ -72,13 +66,6 @@ const modifyCounts = (grudgeDetails) => {
   $totalJackals.text(`Total jackals on your Most-Hated list: ${totalJackals}`)
   $totalJackalsUnforgiven.text(`Total arseholes left unforgiven: ${totalJackalsUnforgiven}`)
   $totalJackalsForgiven.text(`Total vindicated schmucks: ${totalJackalsForgiven}`)
-}
-
-const checkWhoIsForgiven = (grudgeDetails) => {
-  let thoseUnforgiven = grudgeDetails.filter(grudge => {
-    return grudge.forgiven == 'false'
-  })
-  return thoseUnforgiven.length
 }
 
 const resetInputs = () => {
@@ -107,7 +94,8 @@ $sortByNameBtn.on('click', (e) => {
       })
 
       grudgesByName.forEach(grudge => {
-        renderGrudges(grudge)
+        let grudgeTemplate = makeGrudgeTemplate(grudge)
+        $grudgeList.append(grudgeTemplate)
       })
     })
 })
@@ -123,7 +111,8 @@ $sortByDateBtn.on('click', (e) => {
       })
 
       grudgesByDate.forEach(grudge => {
-        renderGrudges(grudge)
+        let grudgeTemplate = makeGrudgeTemplate(grudge)
+        $grudgeList.append(grudgeTemplate)
       })
     })
 })

@@ -50,7 +50,7 @@ app.patch('/api/v1/grudges/:id', (req, res) => {
     return grudge.id === req.params.id
   })
   grudgeEdit['forgiven'] = !grudgeEdit.forgiven
-  res.send(grudgeEdit)
+  res.json(grudgeEdit)
 })
 
 app.listen(app.get('port'), () => {
