@@ -31,6 +31,7 @@ const fetchGrudgeDetails = (grudgeID) => {
   $.get(`/api/v1/grudges/${grudgeID}`)
     .then(grudge => {
       renderGrudgeDetails(grudge)
+      toggleGrudgeBtnText(grudge.forgiven)
     })
 }
 
@@ -40,7 +41,7 @@ const renderGrudgeDetails = (grudge) => {
 
   $grudgeName.append(`<h1 class='grudge-detail'>${grudge.jackalName}</h1>`)
   $grudgeOffense.append(`<p class='grudge-detail'>${grudge.offense}</p>`)
-  $grudgeForgiven.append(`<p class='grudge-detail'><span id='grudge-status-statement'${grudgeStatusStatement}</span</p>`)
+  $grudgeForgiven.append(`<p class='grudge-detail forgiven-status'><span id='grudge-status-statement'>${grudgeStatusStatement}</span></p>`)
 }
 
 const tailorGrudgeStatus = (grudgeForgiven) => {
@@ -51,25 +52,41 @@ const tailorGrudgeStatus = (grudgeForgiven) => {
   }
 }
 
-$toggleGrudgeBtn.on('click', () => {
+$toggleGrudgeBtn.on('click', (e) => {
+  e.preventDefault()
   editJackal()
-  if ($toggleGrudgeBtn.text() == 'Forgive the Monster') {
+})
+
+const editJackal = () => {
+  let grudgeID = getParameterByName('grudgeID')
+
+  $.ajax({
+    method: "PATCH",
+    url: `/api/v1/grudges/${grudgeID}`,
+    async: true,
+    dataType: "json"
+  })
+    .then(grudge => {
+      renderGrudgeUpdate(grudge)
+    })
+}
+
+const renderGrudgeUpdate = (grudge) => {
+  toggleGrudgeBtnText(grudge.forgiven)
+
+  let grudgeStatus = tailorGrudgeStatus(grudge.forgiven)
+  let grudgeStatusStatement = `${grudge.jackalName} is currently ${grudgeStatus}`
+
+  $grudgeForgiven.html(`<div id='grudge-forgiven' class='grudge-status-root'>To Forgive...or NOT to forgive...</div>`)
+  $grudgeForgiven.append(`<p class='grudge-detail forgiven-status'><span id='grudge-status-statement'>${grudgeStatusStatement}</span></p>`)
+}
+
+const toggleGrudgeBtnText = (grudgeForgiven) => {
+  console.log('grudgeForgiven', grudgeForgiven)
+  if (grudgeForgiven == true) {
     $toggleGrudgeBtn.text('Keep your Grudge')
   }
   else {
     $toggleGrudgeBtn.text('Forgive the Monster')
   }
-})
-
-const editJackal = () => {
-  let grudgeID = getParameterByName('grudgeID')
-  $.post(`/api/v1/grudges/${grudgeID}`)
-    // .then(grudges => {
-    //   grudges.map(grudge => {
-    //     if (grudge.id == grudgeID) {
-    //       !grudge.forgiven
-    //     }
-    //   })
-    //   console.log('grudge', grudge)
-    // })
 }

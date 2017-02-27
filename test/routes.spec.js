@@ -1,21 +1,23 @@
 process.env.NODE_ENV = 'test'
 
-var chai = require('chai')
-var should = chai.should()
-var chaiHttp = require('chai-http')
-var server = require('../server.js')
+const chai = require('chai')
+const { assert } = require('chai')
+const should = chai.should()
+const chaiHttp = require('chai-http')
+const app = require('../server.js')
+const request = require('supertest')
 
 chai.use(chaiHttp)
 
 describe('GET /', function() {
   it('should return all grudges', function(done) {
-    chai.request(server)
+    chai.request(app)
     .get('/')
     .end(function(err, res) {
     res.should.have.status(200)
     res.should.be.json
     res.body.should.be.a('object')
-    res.body.should.have.property('forgiven')
+    res.body.should.have.property('jackalName')
     done()
     })
   })
@@ -37,9 +39,9 @@ describe('GET Route(s)', () => {
     .get('/grudges')
     .expect(200, done)
   })
-  it('/jackal/* -- responds with success', (done) => {
+  it('/grudges/* -- responds with success', (done) => {
     request(app)
-    .get('/vote/*')
+    .get('/jackal/*')
     .expect(200, done)
   })
   it('/api/v1/grudges/ -- responds with success', (done) => {

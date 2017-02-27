@@ -45,12 +45,12 @@ app.get('/api/v1/grudges/:id', (req, res) => {
   res.send(grudge)
 })
 
-app.post('/api/v1/grudges/:id', (req, res) => {
-  // let grudge = app.locals.grudges.find(grudge => {
-  //   return grudge.id === req.params.id
-  // })
-  // grudge.forgiven = !grudge.forgiven
-  // res.send(grudge)
+app.patch('/api/v1/grudges/:id', (req, res) => {
+  let grudgeEdit = app.locals.grudges.find(grudge => {
+    return grudge.id === req.params.id
+  })
+  grudgeEdit['forgiven'] = !grudgeEdit.forgiven
+  res.send(grudgeEdit)
 })
 
 app.listen(app.get('port'), () => {

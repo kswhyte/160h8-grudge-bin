@@ -1,4 +1,8 @@
-#grudge-bin-container, #grudge-form, #grudge-list, .grudge-updates {
+html {
+  background-color: #C2E2DD;
+}
+
+#grudge-bin-container, #grudge-form, #grudge-list, .grudge-updates, #sort-buttons {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -31,6 +35,11 @@ input#grudge-person {
 
 #submit-grudge-btn {
   margin: 20px auto 0 auto;
+}
+
+section#sort-buttons {
+  flex-direction: row;
+  margin: 20px 0;
 }
 
 #grudge-list {

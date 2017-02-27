@@ -4,6 +4,8 @@ const $jackalName = $('#grudge-person')
 const $grudgeOffense = $('#grudge-offense')
 const $grudgeDate = $('#grudge-date')
 const $searchFilter = $('#search-filter')
+const $sortByNameBtn = $('#sort-by-name')
+const $sortByDateBtn = $('#sort-by-date')
 
 const $totalJackals = $('#total-jackals')
 const $totalJackalsUnforgiven = $('#total-jackals-unforgiven')
@@ -15,20 +17,24 @@ $(document).ready(() => {
       modifyCounts(grudges)
       if (grudges.length > 0) {
         grudges.forEach(grudge => {
-          $grudgeList.append(`
-            <li>
-              <a class='grudge-name-link' href='/grudges/?grudgeID=${grudge.id}'>
-                ${grudge.jackalName}
-              </a>
-            </li>
-            <li>
-              <p class='grudge-crime-time'>Crime time: ${grudge.offenseDate}</p>
-            </li>
-          `)
+          renderGrudges(grudge)
         })
       }
     })
 })
+
+const renderGrudges = (grudge) => {
+  $grudgeList.append(`
+    <li>
+      <a class='grudge-name-link' href='/jackal/?grudgeID=${grudge.id}'>
+        ${grudge.jackalName}
+      </a>
+    </li>
+    <li>
+      <p class='grudge-crime-time'>Date of Horrid Act: ${grudge.offenseDate}</p>
+    </li>
+  `)
+}
 
 $grudgeForm.on('submit', (e) => {
   e.preventDefault()
@@ -53,16 +59,7 @@ const postGrudges = (grudgeDetails) => {
     modifyCounts(grudgeDetails)
 
     grudgeDetails.forEach(grudge => {
-      $grudgeList.append(`
-        <li>
-          <a class='grudge-name-link' href='/jackal/?grudgeID=${grudge.id}'>
-            ${grudge.jackalName}
-          </a>
-        </li>
-        <li>
-          <p class='grudge-crime-time'>Date of Horrid Act: ${grudge.offenseDate}</p>
-        </li>
-      `)
+      renderGrudges(grudge)
     })
   })
 }
@@ -90,19 +87,43 @@ const resetInputs = () => {
   $grudgeDate.val('')
 }
 
-const searchJackals = () => {
-  // let filter, ul, li, a, i
-  // filter = $searchFilter.val().toUpperCase()
-  // ul = document.getElementById('grudge-list')
-  // li = ul.getElementsByTagName('li')
-  // 
-  // for (i = 0; i < li.length; i++) {
-  //   a = li[i].getElementsByTagName('a')[0]
-  //   console.log('a', a)
-  //   if (a.text().toUpperCase().indexOf(filter) > -1) {
-  //       li[i].style.display = ''
-  //   } else {
-  //       li[i].style.display = 'none'
-  //   }
-  // }
-}
+$sortByNameBtn.on('click', (e) => {
+  e.preventDefault()
+  $grudgeList.empty()
+
+  $.get('/api/v1/grudges')
+    .then(grudges => {
+      let grudgesByName = grudges.sort((a, b) => {
+        let nameA = a.jackalName.toUpperCase()
+        let nameB = b.jackalName.toUpperCase()
+
+        if (nameA < nameB) {
+          return -1
+        }
+        if (nameA > nameB) {
+          return 1
+        }
+        return 0
+      })
+
+      grudgesByName.forEach(grudge => {
+        renderGrudges(grudge)
+      })
+    })
+})
+
+$sortByDateBtn.on('click', (e) => {
+  e.preventDefault()
+  $grudgeList.empty()
+
+  $.get('/api/v1/grudges')
+    .then(grudges => {
+      let grudgesByDate = grudges.sort((a, b) => {
+        return a.offenseDate - b.offenseDate
+      })
+
+      grudgesByDate.forEach(grudge => {
+        renderGrudges(grudge)
+      })
+    })
+})
