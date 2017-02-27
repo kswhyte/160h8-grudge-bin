@@ -8,5 +8,8 @@ const makeGrudgeTemplate = (grudge) => {
     <li>
       <p class='grudge-crime-time'>Date of Horrid Act: ${grudge.offenseDate}</p>
     </li>
+    <li>
+      <p class='grudge-status'>Forgiven? ${grudge.forgiven}</p>
+    </li>
   `)
 }

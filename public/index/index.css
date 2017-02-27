@@ -53,13 +53,18 @@ section#sort-buttons {
 }
 
 .grudge-name-link:hover {
-  color: #8AA8A3;
+  color: #03bacc;
 }
 
-.grudge-crime-time {
+.grudge-crime-time, .grudge-status {
   font-family: 'Open Sans', sans-serif;
-  margin: 10px auto 20px auto;
+  margin: 7px auto 7px auto;
   font-size: 20px;
+}
+
+.grudge-status {
+  color: #A11102;
+  margin-bottom: 30px;
 }
 
 .live-update {

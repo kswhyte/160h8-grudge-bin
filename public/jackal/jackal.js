@@ -58,20 +58,21 @@ const editJackal = () => {
   })
     .then(grudge => {
       renderGrudgeUpdate(grudge)
+      toggleGrudgeBtnText(JSON.parse(grudge.forgiven))
     })
 }
 
 const renderGrudgeUpdate = (grudge) => {
-  toggleGrudgeBtnText(grudge.forgiven)
-
   let grudgeStatus = tailorGrudgeStatus(grudge.forgiven)
   let grudgeStatusStatement = `${grudge.jackalName} is currently ${grudgeStatus}`
 
-  $grudgeForgiven.html(`<div id='grudge-forgiven' class='grudge-status-root'>To Forgive...or NOT to forgive...</div>`)
+  $('.forgiven-status').empty()
+  // $grudgeForgiven.html(`<div id='grudge-forgiven' class='grudge-status-root'>To Forgive...or NOT to forgive...</div>`)
   $grudgeForgiven.append(`<p class='grudge-detail forgiven-status'><span id='grudge-status-statement'>${grudgeStatusStatement}</span></p>`)
 }
 
 const toggleGrudgeBtnText = (grudgeForgiven) => {
+  console.log(grudgeForgiven)
   if (grudgeForgiven == true) {
     $toggleGrudgeBtn.text('Keep your Grudge')
   }
