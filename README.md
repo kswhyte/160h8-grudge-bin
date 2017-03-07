@@ -8,11 +8,9 @@
 
 ---
 
-[Github Repository](https://github.com/kswhyte/160h8-grudge-bin)
+[Original Assessment](https://gist.github.com/Alex-Tideman/5b554a3c4812dc0dd0dc712f84ca5a95)
 
 [Live Version](https://grudge-bin-160h8.herokuapp.com/)
-
-[Original Assessment](https://gist.github.com/Alex-Tideman/5b554a3c4812dc0dd0dc712f84ca5a95)
 
 ---
 
